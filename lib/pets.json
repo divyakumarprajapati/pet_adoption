@@ -1,0 +1,86 @@
+[
+  {
+    "name": "Luna",
+    "age": 2,
+    "price": 200.0,
+    "image": "https://i.imgur.com/U3WgHrE.jpg"
+  },
+  {
+    "name": "Max",
+    "age": 1,
+    "price": 150.0,
+    "image": "https://i.imgur.com/fmtvVpB.jpg"
+  },
+  {
+    "name": "Charlie",
+    "age": 3,
+    "price": 300.0,
+    "image": "https://i.imgur.com/X7zpWWA.jpg"
+  },
+  {
+    "name": "Bella",
+    "age": 4,
+    "price": 250.0,
+    "image": "https://i.imgur.com/cgSTaoe.jpg"
+  },
+  {
+    "name": "Rocky",
+    "age": 5,
+    "price": 350.0,
+    "image": "https://i.imgur.com/qjpnMxo.jpg"
+  },
+  {
+    "name": "Bailey",
+    "age": 2,
+    "price": 200.0,
+    "image": "https://i.imgur.com/5wKjZ1J.jpg"
+  },
+  {
+    "name": "Cooper",
+    "age": 3,
+    "price": 300.0,
+    "image": "https://i.imgur.com/yb6KZ8g.jpg"
+  },
+  {
+    "name": "Daisy",
+    "age": 4,
+    "price": 250.0,
+    "image": "https://i.imgur.com/Z8W1odN.jpg"
+  },
+  {
+    "name": "Lucy",
+    "age": 5,
+    "price": 350.0,
+    "image": "https://i.imgur.com/n5q44tg.jpg"
+  },
+  {
+    "name": "Milo",
+    "age": 1,
+    "price": 150.0,
+    "image": "https://i.imgur.com/BsqAW1n.jpg"
+  },
+  {
+    "name": "Toby",
+    "age": 2,
+    "price": 200.0,
+    "image": "https://i.imgur.com/n2sSl1y.jpg"
+  },
+  {
+    "name": "Sadie",
+    "age": 3,
+    "price": 300.0,
+    "image": "https://i.imgur.com/n2sSl1y.jpg"
+  },
+  {
+    "name": "Leo",
+    "age": 4,
+    "price": 250.0,
+    "image": "https://i.imgur.com/n2sSl1y.jpg"
+  },
+  {
+    "name": "Lola",
+    "age": 5,
+    "price": 350.0,
+    "image": "https://i.imgur.com/n2sSl1y.jpg"
+  }
+]
