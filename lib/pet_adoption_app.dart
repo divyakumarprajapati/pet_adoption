@@ -15,6 +15,7 @@ class PetAdoptionApp extends StatelessWidget {
       title: 'Pet Adoption App',
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        backgroundColor: Colors.white,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       debugShowCheckedModeBanner: false,

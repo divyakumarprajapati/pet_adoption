@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pet_adoption/components/pet_list_component.dart';
+import 'package:pet_adoption/widgets/pet_list.dart';
+import 'package:pet_adoption/widgets/pet_serach_field.dart';
 
 class HomePage extends StatelessWidget {
   static const ROUTE_NAME = 'home_page';
@@ -12,44 +14,59 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+    petListComponent.getPets();
     return Scaffold(
       appBar: AppBar(
-        foregroundColor: Colors.black,
         backgroundColor: Colors.white,
         elevation: 0,
         actionsIconTheme: IconThemeData(size: 50),
-        leading: IconButton(
-          icon: const Icon(
+        leading: Padding(
+          padding: const EdgeInsets.only(left: 10.0),
+          child: const Icon(
             Icons.menu,
             size: 32,
+            color: Colors.black,
           ),
-          onPressed: () {},
         ),
-      ),
-      body: Stack(
-        alignment: AlignmentDirectional.topStart,
-        children: [
+        title: Text(
+          'Home',
+          style: TextStyle(
+            color: Colors.black,
+            fontWeight: FontWeight.w600,
+            fontSize: 24,
+          ),
+        ),
+        actions: [
           Container(
-            width: size.width,
-            height: size.height,
-            color: Colors.white,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const SizedBox(
-                  height: 50.0,
-                ),
-                const Text(
-                  'Sign Up',
-                  style: TextStyle(
-                    fontSize: 35,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ],
+            height: 36,
+            width: 36,
+            margin: EdgeInsets.only(right: 12),
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage('assets/app_icon.png'),
+              ),
+              shape: BoxShape.circle,
             ),
           ),
         ],
+      ),
+      body: SafeArea(
+        child: Container(
+          width: size.width,
+          height: size.height,
+          color: Colors.white,
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(20.0),
+                child: PetSearchField(petListComponent: petListComponent),
+              ),
+              Expanded(
+                child: PetList(petListComponent: petListComponent),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
