@@ -7,9 +7,9 @@ import 'package:pet_adoption/models/pet.dart';
 class ComponentFactory {
   late List<Pet> pets;
 
-  void init() async {
+  Future<void> init() async {
     String _petsJson = await rootBundle.loadString('lib/pets.json');
-    List<Map<String, dynamic>> _pets = json.decode(_petsJson);
+    List<dynamic> _pets = json.decode(_petsJson);
     pets = _pets.map((pet) => Pet.fromJson(pet)).toList();
   }
 

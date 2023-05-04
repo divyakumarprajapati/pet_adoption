@@ -3,9 +3,9 @@ import 'package:pet_adoption/factory/route_factory.dart';
 import 'package:pet_adoption/pet_adoption_app.dart';
 
 class AppFactory {
-  PetAdoptionApp buildPetAdoptionApp() {
+  Future<PetAdoptionApp> buildPetAdoptionApp() async {
     ComponentFactory componentFactory = ComponentFactory();
-    componentFactory.init();
+    await componentFactory.init();
     RoutesFactory routesFactory = RoutesFactory(
       componentFactory: componentFactory,
     );
