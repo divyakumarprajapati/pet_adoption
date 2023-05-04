@@ -11,11 +11,46 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
-        title: Text('Home'),
+        foregroundColor: Colors.black,
+        backgroundColor: Colors.white,
+        elevation: 0,
+        actionsIconTheme: IconThemeData(size: 50),
+        leading: IconButton(
+          icon: const Icon(
+            Icons.menu,
+            size: 32,
+          ),
+          onPressed: () {},
+        ),
       ),
-      body: Container(),
+      body: Stack(
+        alignment: AlignmentDirectional.topStart,
+        children: [
+          Container(
+            width: size.width,
+            height: size.height,
+            color: Colors.white,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const SizedBox(
+                  height: 50.0,
+                ),
+                const Text(
+                  'Sign Up',
+                  style: TextStyle(
+                    fontSize: 35,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
