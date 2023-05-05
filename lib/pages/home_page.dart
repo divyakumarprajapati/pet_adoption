@@ -103,6 +103,16 @@ class _HomePageState extends State<HomePage> {
                     color: appTheme.textColor,
                   ),
                 ),
+                trailing: IconButton(
+                  onPressed: (){
+                    Navigator.of(context).pop();
+                  },
+                  icon: Icon(
+                    Icons.clear,
+                    color: appTheme.iconColor,
+                    size: 32,
+                  ),
+                ),
               ),
               ListTile(
                 title: Text(
