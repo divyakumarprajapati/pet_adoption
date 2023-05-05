@@ -16,7 +16,6 @@ class AppFactory {
     RoutesFactory routesFactory = RoutesFactory(
       componentFactory: componentFactory,
     );
-    routesFactory.init();
     return PetAdoptionApp(
       routesFactory: routesFactory,
     );

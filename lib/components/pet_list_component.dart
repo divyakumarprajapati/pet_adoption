@@ -19,7 +19,7 @@ class PetListComponent {
 
   late List<int> _adoptedPetIds;
 
-  getPets({String? search}) async {
+  getPets({String? search, bool adopted = false}) async {
     _adoptedPetIds = adoptionPreferences.adoptedPetIds;
     List<Pet> _filteredPets = pets.where((pet) {
       return pet.name.toLowerCase().contains(search?.toLowerCase() ?? '');
@@ -29,6 +29,9 @@ class PetListComponent {
         pet.adopt();
       }
     });
+    if (adopted) {
+      _filteredPets = _filteredPets.where((pet) => pet.adopted).toList();
+    }
     _subject.sink.add(_filteredPets);
   }
 }

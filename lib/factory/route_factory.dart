@@ -7,14 +7,6 @@ class RoutesFactory {
   final ComponentFactory componentFactory;
   RoutesFactory({required this.componentFactory});
 
-  late HomePage homePage;
-  late HistoryPage historyPage;
-
-  void init() {
-    homePage = buildHomePage();
-    historyPage = buildHistoryPage();
-  }
-
   HomePage buildHomePage() {
     return HomePage(
       petListComponent: componentFactory.buildPetListComponent(),

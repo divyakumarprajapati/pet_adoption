@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:pet_adoption/factory/route_factory.dart';
 import 'package:pet_adoption/pages/details_page.dart';
@@ -22,14 +21,14 @@ class PetAdoptionApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       initialRoute: HomePage.ROUTE_NAME,
       routes: {
-        HomePage.ROUTE_NAME: (context) => routesFactory.homePage,
-        HistoryPage.ROUTE_NAME: (context) => routesFactory.historyPage,
+        HomePage.ROUTE_NAME: (context) => routesFactory.buildHomePage(),
+        HistoryPage.ROUTE_NAME: (context) => routesFactory.buildHistoryPage(),
       },
-      onGenerateRoute: (RouteSettings settings){
-        switch(settings.name) {
+      onGenerateRoute: (RouteSettings settings) {
+        switch (settings.name) {
           case DetailsPage.ROUTE_NAME:
             late int id;
-            if(settings.arguments is int) {
+            if (settings.arguments is int) {
               id = settings.arguments as int;
             }
             return MaterialPageRoute(

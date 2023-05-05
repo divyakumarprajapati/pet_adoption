@@ -14,7 +14,6 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
     petListComponent.getPets();
     return Scaffold(
       appBar: AppBar(
@@ -46,6 +45,7 @@ class HomePage extends StatelessWidget {
             padding: const EdgeInsets.only(right: 10.0),
             child: IconButton(
               onPressed: () {
+                petListComponent.dispose();
                 Navigator.pushNamed(
                   context,
                   HistoryPage.ROUTE_NAME,
@@ -65,21 +65,16 @@ class HomePage extends StatelessWidget {
           onTap: () {
             FocusManager.instance.primaryFocus?.unfocus();
           },
-          child: Container(
-            width: size.width,
-            height: size.height,
-            color: Colors.white,
-            child: Column(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(20.0),
-                  child: PetSearchField(petListComponent: petListComponent),
-                ),
-                Expanded(
-                  child: PetList(petListComponent: petListComponent),
-                ),
-              ],
-            ),
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(20.0),
+                child: PetSearchField(petListComponent: petListComponent),
+              ),
+              Expanded(
+                child: PetList(petListComponent: petListComponent),
+              ),
+            ],
           ),
         ),
       ),
