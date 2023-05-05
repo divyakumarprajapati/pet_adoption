@@ -2,6 +2,8 @@
 
 A new Flutter project.
 
+## Download and test app using this apk: (https://github.com/divyakumarprajapati/pet_adoption/blob/main/app-release.apk)
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
