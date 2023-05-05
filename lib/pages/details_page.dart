@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pet_adoption/app_theme.dart';
 import 'package:pet_adoption/components/pet_component.dart';
 import 'package:pet_adoption/models/pet.dart';
 import 'package:pet_adoption/widgets/adopted_pet_dialog.dart';
@@ -7,9 +8,11 @@ import 'package:pet_adoption/widgets/zoomable_image_viewer.dart';
 class DetailsPage extends StatefulWidget {
   static const ROUTE_NAME = 'details_page';
   final PetComponent petComponent;
+  final AppTheme appTheme;
   const DetailsPage({
     Key? key,
     required this.petComponent,
+    required this.appTheme,
   }) : super(key: key);
 
   @override
@@ -41,6 +44,7 @@ class _DetailsPageState extends State<DetailsPage>
           return Text(snapshot.error.toString());
         } else if (snapshot.hasData) {
           return Scaffold(
+            backgroundColor: widget.appTheme.backgroundColor,
             body: SafeArea(
               child: SingleChildScrollView(
                 child: Column(
@@ -87,10 +91,10 @@ class _DetailsPageState extends State<DetailsPage>
                               ),
                             ),
                             IconButton(
-                              icon: const Icon(
+                              icon: Icon(
                                 Icons.arrow_back_ios,
                                 size: 32,
-                                color: Colors.black,
+                                color: widget.appTheme.iconColor,
                               ),
                               onPressed: () {
                                 Navigator.pop(context);
@@ -107,6 +111,7 @@ class _DetailsPageState extends State<DetailsPage>
                         style: TextStyle(
                           fontSize: 26,
                           fontWeight: FontWeight.w600,
+                          color: widget.appTheme.textColor,
                         ),
                       ),
                     ),
@@ -134,6 +139,7 @@ class _DetailsPageState extends State<DetailsPage>
                                   '${snapshot.data?.age ?? ''} years',
                                   style: TextStyle(
                                     fontSize: 16,
+                                    color: widget.appTheme.textColor,
                                   ),
                                 ),
                               ],
@@ -162,6 +168,7 @@ class _DetailsPageState extends State<DetailsPage>
                                   'Rs. ${snapshot.data?.price ?? ''}',
                                   style: TextStyle(
                                     fontSize: 16,
+                                    color: widget.appTheme.textColor,
                                   ),
                                 ),
                               ],
@@ -174,7 +181,10 @@ class _DetailsPageState extends State<DetailsPage>
                       padding: const EdgeInsets.all(12.0),
                       child: Text(
                         "Adopting a pet is not just about giving a loving home to a furry friend, it's about changing a life forever. By adopting, you're giving a second chance to an animal in need and providing them with the love, care, and attention they deserve. It's a chance to make a difference in the world, one animal at a time. \n\nPets bring joy, companionship, and unconditional love into our lives. Whether you're a dog person or a cat person, there's a furry companion out there waiting for you. Adopting a pet can also have numerous health benefits, from reducing stress and anxiety to increasing physical activity and lowering blood pressure.",
-                        style: TextStyle(fontSize: 16),
+                        style: TextStyle(
+                          fontSize: 16,
+                          color: widget.appTheme.textColor,
+                        ),
                       ),
                     ),
                   ],
