@@ -29,31 +29,36 @@ class PetList extends StatelessWidget {
                     arguments: _pet.id,
                   );
                 },
-                child: Hero(
-                  tag: 'pet_image_${index}',
-                  child: Container(
-                    margin: const EdgeInsets.symmetric(
-                      horizontal: 20.0,
-                      vertical: 10,
-                    ),
-                    padding: const EdgeInsets.all(12),
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(16.0),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey.withOpacity(0.5),
-                          spreadRadius: 1,
-                          blurRadius: 5,
-                          offset: Offset(0, 2), // changes position of shadow
-                        ),
-                      ],
-                    ),
-                    width: 200,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        ClipRRect(
+                child: Container(
+                  margin: const EdgeInsets.symmetric(
+                    horizontal: 20.0,
+                    vertical: 10,
+                  ),
+                  padding: const EdgeInsets.all(12),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(16.0),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.5),
+                        spreadRadius: 1,
+                        blurRadius: 5,
+                        offset: Offset(0, 2), // changes position of shadow
+                      ),
+                    ],
+                  ),
+                  width: 200,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Hero(
+                        tag: 'pet_image_${_pet.id}',
+                        createRectTween: (Rect? begin, Rect? end) {
+                          return MaterialRectCenterArcTween(
+                              begin: begin,
+                              end: end);
+                        },
+                        child: ClipRRect(
                           borderRadius: BorderRadius.circular(15),
                           child: SizedBox(
                             height: 200,
@@ -64,44 +69,44 @@ class PetList extends StatelessWidget {
                             ),
                           ),
                         ),
-                        Padding(
-                          padding: const EdgeInsets.only(
-                            left: 8.0,
-                            top: 8.0,
-                            right: 8.0,
-                          ),
-                          child: Row(
-                            children: [
-                              Text(
-                                _pet.name,
-                                style: TextStyle(
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.w600,
-                                ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(
+                          left: 8.0,
+                          top: 8.0,
+                          right: 8.0,
+                        ),
+                        child: Row(
+                          children: [
+                            Text(
+                              _pet.name,
+                              style: TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.w600,
                               ),
-                              Padding(
-                                padding: const EdgeInsets.only(left: 3.0),
-                                child: Text(
-                                  '(${_pet.age} years)',
-                                  style: TextStyle(
-                                    fontSize: 16,
-                                  ),
-                                ),
-                              ),
-                              Spacer(),
-                              Text(
-                                'Rs. ${_pet.price}',
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(left: 3.0),
+                              child: Text(
+                                '(${_pet.age} years)',
                                 style: TextStyle(
                                   fontSize: 16,
-                                  fontWeight: FontWeight.w400,
-                                  color: Colors.green,
                                 ),
                               ),
-                            ],
-                          ),
-                        )
-                      ],
-                    ),
+                            ),
+                            Spacer(),
+                            Text(
+                              'Rs. ${_pet.price}',
+                              style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.w400,
+                                color: Colors.green,
+                              ),
+                            ),
+                          ],
+                        ),
+                      )
+                    ],
                   ),
                 ),
               );
