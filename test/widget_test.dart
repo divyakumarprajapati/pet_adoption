@@ -7,25 +7,74 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pet_adoption/components/pet_list_component.dart';
 
-import 'package:pet_adoption/main.dart';
-import 'package:pet_adoption/pet_adoption_app.dart';
+import 'package:pet_adoption/models/pet.dart';
+import 'package:pet_adoption/pages/home_page.dart';
+import 'package:pet_adoption/preferences/adoption_preferences.dart';
+import 'package:pet_adoption/preferences/dark_theme_preference.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
+void main() async{
+  SharedPreferences preferences = await SharedPreferences.getInstance();
+  PetListComponent petListComponent = PetListComponent(
+    pets: [
+      Pet(
+        id: 1,
+        name: 'name',
+        age: 12,
+        price: 200,
+        image: 'assets/dogs1.jpg',
+      ),
+      Pet(
+        id: 2,
+        name: 'game',
+        age: 12,
+        price: 200,
+        image: 'assets/dogs1.jpg',
+      ),
+      Pet(
+        id: 3,
+        name: 'lame',
+        age: 12,
+        price: 200,
+        image: 'assets/dogs1.jpg',
+      ),
+    ],
+    adoptionPreferences: AdoptionPreferences(
+      preferences: preferences,
+    ),
+  );
+  testWidgets('test if all element exits', (WidgetTester tester) async {
     // Build our app and trigger a frame.
-    await tester.pumpWidget(PetAdoptionApp());
+    await tester.pumpWidget(
+      HomePage(
+        petListComponent: petListComponent,
+        darkThemePreference: DarkThemePreference(preferences: preferences),
+      ),
+    );
 
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
+    expect(find.text('name'), findsOneWidget);
+    expect(find.text('game'), findsOneWidget);
+    expect(find.text('lame'), findsOneWidget);
+  });
+  testWidgets('test search in home screen', (WidgetTester tester) async {
+    // Build our app and trigger a frame.
+    await tester.pumpWidget(
+      HomePage(
+        petListComponent: petListComponent,
+        darkThemePreference: DarkThemePreference(preferences: preferences),
+      ),
+    );
 
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
-    await tester.pump();
+    expect(find.text('name'), findsOneWidget);
+    expect(find.text('game'), findsOneWidget);
+    expect(find.text('lame'), findsOneWidget);
 
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+    await tester.enterText(find.byType(TextField), 'na');
+
+    expect(find.text('name'), findsOneWidget);
+    expect(find.text('game'), findsNothing);
+    expect(find.text('lame'), findsNothing);
   });
 }

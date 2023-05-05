@@ -1,86 +1,100 @@
 [
   {
+    "id": 1,
     "name": "Luna",
     "age": 2,
     "price": 200.0,
-    "image": "https://i.imgur.com/U3WgHrE.jpg"
+    "image": "assets/dogs/dog0.jpg"
   },
   {
+    "id": 2,
     "name": "Max",
     "age": 1,
     "price": 150.0,
-    "image": "https://i.imgur.com/fmtvVpB.jpg"
+    "image": "assets/dogs/dog1.jpg"
   },
   {
+    "id": 3,
     "name": "Charlie",
     "age": 3,
     "price": 300.0,
-    "image": "https://i.imgur.com/X7zpWWA.jpg"
+    "image": "assets/dogs/dog2.jpg"
   },
   {
+    "id": 4,
     "name": "Bella",
     "age": 4,
     "price": 250.0,
-    "image": "https://i.imgur.com/cgSTaoe.jpg"
+    "image": "assets/dogs/dog3.jpg"
   },
   {
+    "id": 5,
     "name": "Rocky",
     "age": 5,
     "price": 350.0,
-    "image": "https://i.imgur.com/qjpnMxo.jpg"
+    "image": "assets/dogs/dog4.jpg"
   },
   {
+    "id": 6,
     "name": "Bailey",
     "age": 2,
     "price": 200.0,
-    "image": "https://i.imgur.com/5wKjZ1J.jpg"
+    "image": "assets/dogs/dog5.jpg"
   },
   {
+    "id": 7,
     "name": "Cooper",
     "age": 3,
     "price": 300.0,
-    "image": "https://i.imgur.com/yb6KZ8g.jpg"
+    "image": "assets/dogs/dog6.jpg"
   },
   {
+    "id": 8,
     "name": "Daisy",
     "age": 4,
     "price": 250.0,
-    "image": "https://i.imgur.com/Z8W1odN.jpg"
+    "image": "assets/dogs/dog7.jpg"
   },
   {
+    "id": 9,
     "name": "Lucy",
     "age": 5,
     "price": 350.0,
-    "image": "https://i.imgur.com/n5q44tg.jpg"
+    "image": "assets/dogs/dog8.jpg"
   },
   {
+    "id": 10,
     "name": "Milo",
     "age": 1,
     "price": 150.0,
-    "image": "https://i.imgur.com/BsqAW1n.jpg"
+    "image": "assets/dogs/dog9.jpg"
   },
   {
+    "id": 11,
     "name": "Toby",
     "age": 2,
     "price": 200.0,
-    "image": "https://i.imgur.com/n2sSl1y.jpg"
+    "image": "assets/dogs/dog10.jpg"
   },
   {
+    "id": 12,
     "name": "Sadie",
     "age": 3,
     "price": 300.0,
-    "image": "https://i.imgur.com/n2sSl1y.jpg"
+    "image": "assets/dogs/dog11.jpg"
   },
   {
+    "id": 13,
     "name": "Leo",
     "age": 4,
     "price": 250.0,
-    "image": "https://i.imgur.com/n2sSl1y.jpg"
+    "image": "assets/dogs/dog12.jpg"
   },
   {
+    "id": 14,
     "name": "Lola",
     "age": 5,
     "price": 350.0,
-    "image": "https://i.imgur.com/n2sSl1y.jpg"
+    "image": "assets/dogs/dog5.jpg"
   }
 ]
