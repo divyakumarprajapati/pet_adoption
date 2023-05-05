@@ -28,7 +28,7 @@ class PetList extends StatelessWidget {
                     context,
                     DetailsPage.ROUTE_NAME,
                     arguments: _pet.id,
-                  );
+                  ).then((value) => petListComponent.getPets());
                 },
                 child: Container(
                   margin: const EdgeInsets.symmetric(
@@ -60,13 +60,40 @@ class PetList extends StatelessWidget {
                         },
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(15),
-                          child: SizedBox(
-                            height: 200,
-                            width: double.maxFinite,
-                            child: Image.asset(
-                              _pet.image,
-                              fit: BoxFit.fitWidth,
-                            ),
+                          child: Stack(
+                            children: [
+                              SizedBox(
+                                height: 200,
+                                width: double.maxFinite,
+                                child: ColorFiltered(
+                                  colorFilter: ColorFilter.mode(
+                                    _pet.adopted
+                                        ? Colors.grey
+                                        : Colors.transparent,
+                                    BlendMode.saturation,
+                                  ),
+                                  child: Image.asset(
+                                    _pet.image,
+                                    fit: BoxFit.fitWidth,
+                                  ),
+                                ),
+                              ),
+                              if (_pet.adopted)
+                                Padding(
+                                  padding: const EdgeInsets.only(top: 90.0),
+                                  child: Align(
+                                    alignment: Alignment.center,
+                                    child: Text(
+                                      'Already Adopted',
+                                      style: TextStyle(
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.w600,
+                                        color: Colors.red,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                            ],
                           ),
                         ),
                       ),

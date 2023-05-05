@@ -25,6 +25,9 @@ class ComponentFactory {
   }
 
   PetListComponent buildPetListComponent() {
-    return PetListComponent(pets: pets);
+    return PetListComponent(
+      pets: pets,
+      adoptionPreferences: adoptionPreferences,
+    );
   }
 }

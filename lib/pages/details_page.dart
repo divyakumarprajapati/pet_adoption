@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pet_adoption/components/pet_component.dart';
 import 'package:pet_adoption/models/pet.dart';
+import 'package:pet_adoption/widgets/adopted_pet_dialog.dart';
 import 'package:pet_adoption/widgets/zoomable_image_viewer.dart';
 
 class DetailsPage extends StatefulWidget {
@@ -175,7 +176,7 @@ class _DetailsPageState extends State<DetailsPage>
                         "Adopting a pet is not just about giving a loving home to a furry friend, it's about changing a life forever. By adopting, you're giving a second chance to an animal in need and providing them with the love, care, and attention they deserve. It's a chance to make a difference in the world, one animal at a time. \n\nPets bring joy, companionship, and unconditional love into our lives. Whether you're a dog person or a cat person, there's a furry companion out there waiting for you. Adopting a pet can also have numerous health benefits, from reducing stress and anxiety to increasing physical activity and lowering blood pressure.",
                         style: TextStyle(fontSize: 16),
                       ),
-                    )
+                    ),
                   ],
                 ),
               ),
@@ -190,9 +191,15 @@ class _DetailsPageState extends State<DetailsPage>
                         ? null
                         : () {
                             widget.petComponent.adoptPet();
+                            Future.delayed(Duration(milliseconds: 200), () {
+                              AdoptedPetDialog().showAdoptionDialog(
+                                context,
+                                snapshot.data?.name ?? '',
+                              );
+                            });
                           },
                     child: Text(
-                      'Adoption',
+                      snapshot.data!.adopted ? 'Already Adopted' : 'Adoption',
                       style: TextStyle(color: Colors.white, fontSize: 18),
                     ),
                     style: ButtonStyle(
