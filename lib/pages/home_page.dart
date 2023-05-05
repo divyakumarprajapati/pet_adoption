@@ -26,7 +26,6 @@ class _HomePageState extends State<HomePage> {
 
   @override
   void dispose() {
-    widget.petListComponent.dispose();
     super.dispose();
   }
 
