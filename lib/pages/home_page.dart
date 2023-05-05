@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pet_adoption/components/pet_list_component.dart';
+import 'package:pet_adoption/pages/history_page.dart';
 import 'package:pet_adoption/widgets/pet_list.dart';
 import 'package:pet_adoption/widgets/pet_serach_field.dart';
 
@@ -20,14 +21,18 @@ class HomePage extends StatelessWidget {
         backgroundColor: Colors.white,
         elevation: 0,
         actionsIconTheme: IconThemeData(size: 50),
-        leading: Padding(
-          padding: const EdgeInsets.only(left: 10.0),
-          child: const Icon(
-            Icons.menu,
-            size: 32,
-            color: Colors.black,
+        leading: Container(
+          height: 32,
+          width: 32,
+          margin: EdgeInsets.only(left: 12),
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage('assets/app_icon.png'),
+            ),
+            shape: BoxShape.circle,
           ),
         ),
+        leadingWidth: 50,
         title: Text(
           'Home',
           style: TextStyle(
@@ -37,34 +42,44 @@ class HomePage extends StatelessWidget {
           ),
         ),
         actions: [
-          Container(
-            height: 36,
-            width: 36,
-            margin: EdgeInsets.only(right: 12),
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage('assets/app_icon.png'),
+          Padding(
+            padding: const EdgeInsets.only(right: 10.0),
+            child: IconButton(
+              onPressed: () {
+                Navigator.pushNamed(
+                  context,
+                  HistoryPage.ROUTE_NAME,
+                );
+              },
+              icon: const Icon(
+                Icons.bookmark_sharp,
+                size: 36,
+                color: Colors.black87,
               ),
-              shape: BoxShape.circle,
             ),
           ),
         ],
       ),
       body: SafeArea(
-        child: Container(
-          width: size.width,
-          height: size.height,
-          color: Colors.white,
-          child: Column(
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(20.0),
-                child: PetSearchField(petListComponent: petListComponent),
-              ),
-              Expanded(
-                child: PetList(petListComponent: petListComponent),
-              ),
-            ],
+        child: GestureDetector(
+          onTap: () {
+            FocusManager.instance.primaryFocus?.unfocus();
+          },
+          child: Container(
+            width: size.width,
+            height: size.height,
+            color: Colors.white,
+            child: Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(20.0),
+                  child: PetSearchField(petListComponent: petListComponent),
+                ),
+                Expanded(
+                  child: PetList(petListComponent: petListComponent),
+                ),
+              ],
+            ),
           ),
         ),
       ),

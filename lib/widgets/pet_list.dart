@@ -19,6 +19,7 @@ class PetList extends StatelessWidget {
           return Text(snapshot.error.toString());
         } else if (snapshot.hasData) {
           return ListView.builder(
+            keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
             itemBuilder: (context, index) {
               Pet _pet = snapshot.data![index];
               return GestureDetector(
@@ -55,8 +56,7 @@ class PetList extends StatelessWidget {
                         tag: 'pet_image_${_pet.id}',
                         createRectTween: (Rect? begin, Rect? end) {
                           return MaterialRectCenterArcTween(
-                              begin: begin,
-                              end: end);
+                              begin: begin, end: end);
                         },
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(15),
