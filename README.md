@@ -6,7 +6,7 @@ A new Flutter project.
 
 ### App Screenshots
 
-<img src="https://camo.githubusercontent.com/..." data-canonical-src="https://user-images.githubusercontent.com/50908133/236599489-83694374-ebb3-4184-85a6-6a079c9b04b6.png" width="200" height="400" />
+<img src="https://user-images.githubusercontent.com/50908133/236599489-83694374-ebb3-4184-85a6-6a079c9b04b6.png" width="200" height="400" />
 
 
 ![Simulator Screen Shot - iPhone 14 Pro Max - 2023-05-06 at 09 42 09](https://user-images.githubusercontent.com/50908133/236599493-9f004906-6e90-44fc-a0af-0b41430d46ed.png)
